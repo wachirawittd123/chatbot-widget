@@ -1,0 +1,5 @@
+
+Compress files to min.js
+- npx terser src/components/chat-box.js  -o public/chatbox-widget.min.js
+Compress files to min.css
+- csso src/styles/chatbot-widget.css --output public/chatbot-widget.min.css

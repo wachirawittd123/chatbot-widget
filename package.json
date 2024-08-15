@@ -5,16 +5,24 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:min": "npx terser src/components/chat-box.js  -o public/chatbox-widget.min.js && csso src/styles/chatbot-widget.css --output public/chatbot-widget.min.css",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/runtime": "^7.25.0",
+    "axios": "^1.7.4",
+    "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.5"
+    "react-dom": "^18"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-react": "^7.24.7",
+    "babel-preset-minify": "^0.5.2",
     "eslint": "^8",
-    "eslint-config-next": "14.2.5"
+    "eslint-config-next": "14.2.5",
+    "terser-webpack-plugin": "^5.3.10"
   }
 }
