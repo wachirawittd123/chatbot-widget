@@ -52,20 +52,19 @@
     if (input.trim().length > 0) {
       loading = true;
       messages.push({ type: "text", value: input, role: 'USER' });
-      input = '';
-      renderChatbox();
-
       const data = JSON.stringify({
-        "uid": "chatbot-widget-website",
+        "uid": chatbotDiv.id,
         "question": input
       });
-
+      input = '';
+      renderChatbox();
       const config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: `${webhook}?keyId=${keyId}`,
+        url: `${webhook}`,
         headers: { 
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'keyId': keyId
         },
         data : data
       };

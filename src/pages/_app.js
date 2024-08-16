@@ -1,4 +1,4 @@
-// import "@/styles/chatbot-widget.css";
+import "@/styles/chatbot-widget.css";
 import React from 'react';
 
 export default function App({ Component, pageProps }) {

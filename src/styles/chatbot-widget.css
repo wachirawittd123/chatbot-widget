@@ -6,7 +6,7 @@
 
   #buble-btn {
     position: fixed;
-    bottom: 80px;
+    bottom: 60px;
     right: 24px;
     border-radius: 70px;
     width: 70px;
@@ -34,7 +34,7 @@
     bottom: 20px;
     right: 20px;
     width: 400px;
-    height: 450px;
+    height: 550px;
     border: 1px solid rgb(224, 224, 224);
     border-radius: 10px;
     background: #fff;
@@ -45,7 +45,8 @@
     display: flex;
     border-bottom: 1px solid rgb(224, 224, 224);
     padding: 10px;
-    height: 8%;
+    height: 55px !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 
   .chatbox-header .title {
@@ -70,19 +71,19 @@
   }
   
   #chatbox-messages {
-    height: 80%;
+    height: 415px;
     width: 380px;
     overflow-x: auto;
     margin-bottom: 10px;
   }
   
   #chatbox-input {
-    width: calc(100% - 13px);
+    width: 100%;
     padding: 5px;
     margin-bottom: 10px;
     border: 1px solid rgb(224, 224, 224);
     border-radius: 4px;
-    height: 25px;
+    height: 45px !important;
   }
   
   #chatbox-send-btn {
@@ -103,7 +104,7 @@
   }
 
   .text-buble {
-    height: 70px;
+    height: 60px;
     font-size: 18px;
     align-content: center;
     font-weight: bold;
@@ -129,6 +130,7 @@
 
   .user-body .header .description {
     font-size: 12px;
+    margin-top: -5px;
   }
 
   .user-body .header .avatar {
@@ -169,6 +171,7 @@
 
   .bot-body .header .description {
     font-size: 12px;
+    margin-top: -5px;
   }
 
   .bot-body .header .avatar {
@@ -263,8 +266,8 @@
 
   .icon-send-button {
     position: absolute;
-    bottom: 17px;
-    right: 20px;
+    bottom: 18px;
+    right: 22px;
     cursor: pointer;
   }
 
