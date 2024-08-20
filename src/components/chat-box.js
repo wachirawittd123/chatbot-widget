@@ -53,7 +53,7 @@
       loading = true;
       messages.push({ type: "text", value: input, role: 'USER' });
       const data = JSON.stringify({
-        "uid": chatbotDiv.id,
+        "uid": "89aed2f8-17ce-42c4-9ef3-0724316b8339",
         "question": input
       });
       input = '';
@@ -61,10 +61,9 @@
       const config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: `${webhook}`,
+        url: `${webhook}?keyId=${keyId}`,
         headers: { 
           'Content-Type': 'application/json',
-          'keyId': keyId
         },
         data : data
       };
