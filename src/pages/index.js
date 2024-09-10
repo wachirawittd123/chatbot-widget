@@ -19,8 +19,8 @@ export default function Home() {
                 title-header="Test bot"
                 webhook=https://dpt-chatbot.digitaltouchpointserver.com/webhook-website
                 ></div>
-                <script src="https://dpt-chatbot.digitaltouchpointserver.com/static/script/chatbox-widget.min.js"></script>
-                <link rel="stylesheet" href="https://dpt-chatbot.digitaltouchpointserver.com/static/script/chatbot-widget.min.css">
+                <script src="/chatbox-widget.min.js"></script>
+                <link rel="stylesheet" href="/chatbot-widget.min.css">
               `
           }}
       />

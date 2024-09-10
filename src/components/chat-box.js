@@ -103,10 +103,9 @@
   };
 
   const checkRenderBot = (data) => {
-    console.log('data========>',data)
     switch(data?.type || data?.template?.type) {
       case "image":
-        return `<img alt="default" src="${data?.value}" width="200" height="200" />`;
+        return `<img alt="default" src="${data?.value}" width="200" height="200" onclick="previewImage('${data?.value}')" />`;
       case "quickreply":
         return `
           <div class="grid-wrapper">
@@ -365,6 +364,44 @@
 
       scrollToBottom();
     }
+  };
+
+  window.previewImage = (imageUrl) => {
+    const modal = document.createElement('div');
+    modal.id = 'image-preview-modal';
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = '9999';
+  
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+  
+    const closeButton = document.createElement('img');
+    closeButton.src = 'https://i.ibb.co/jhCxsbM/close.png';  // URL of your "X" icon
+    closeButton.alt = 'Close';
+
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '20px';
+    closeButton.style.right = '20px';
+    closeButton.style.width = '40px';  // Size of the close icon
+    closeButton.style.height = '40px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.onclick = () => {
+      document.body.removeChild(modal);
+    };
+  
+    modal.appendChild(img);
+    modal.appendChild(closeButton);
+    document.body.appendChild(modal);
   };
 
   renderChatbox();
