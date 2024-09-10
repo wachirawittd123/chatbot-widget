@@ -48,6 +48,11 @@
     }
   };
 
+  window.quickReplySend = async (text) => {
+    input = text;
+    await handleSend();
+  };
+
   const handleSend = async () => {
     if (input.trim().length > 0) {
       loading = true;
@@ -98,6 +103,7 @@
   };
 
   const checkRenderBot = (data) => {
+    console.log('data========>',data)
     switch(data?.type || data?.template?.type) {
       case "image":
         return `<img alt="default" src="${data?.value}" width="200" height="200" />`;
@@ -105,7 +111,7 @@
         return `
           <div class="grid-wrapper">
             ${data?.quick_replies?.map((e, i) => 
-              `<div key="${i}" class="button-default" style="width: auto;"> 
+              `<div key="${i}" class="button-default" style="width: auto; cursor: pointer;" onclick="quickReplySend('${e?.payload}')"> 
                 ${checkAndTruncate(e?.title, 15)}
               </div>`
             ).join('')}
@@ -127,7 +133,7 @@
               </div>
               <div style="width: 100%; margin-top: 10px;">
                 ${carousel?.actions?.map((e,i) => 
-                  `<div key="${i}" class="button-default" style="margin-top: ${i > 0 ? 5 : 0}px; width: 83%;"> 
+                  `<div key="${i}" class="button-default" style="margin-top: ${i > 0 ? 5 : 0}px; width: 83%; cursor: pointer;" onclick="window.open('${e?.url}')"> 
                     ${checkAndTruncate(e?.title, 15)}
                   </div>`
                 ).join('')}
@@ -145,7 +151,7 @@
           </div>
         `;
       default:
-        return `<div class="title-default">${data?.value}</div>`;
+        return `<div class="title-default">${data?.value || data?.text}</div>`;
     }
   };
 
@@ -199,10 +205,10 @@
     botBody.className = 'bot-body';
 
     const header = document.createElement('div');
-    header.className = 'header';
+    header.className = 'header-container';
 
     const avatar = document.createElement('img');
-    avatar.className = 'avatar';
+    avatar.className = 'header-avatar';
     avatar.alt = 'robot-avatar';
     avatar.src = defaultRobotAvatar;
     avatar.style.marginRight = '5px';
@@ -210,11 +216,11 @@
     const botInfo = document.createElement('div');
 
     const title = document.createElement('div');
-    title.className = 'title';
+    title.className = 'header-title';
     title.innerText = titleBot;
 
     const description = document.createElement('div');
-    description.className = 'description';
+    description.className = 'header-description';
     description.innerText = descriptionBot;
 
     botInfo.appendChild(title);
@@ -224,10 +230,10 @@
     header.appendChild(botInfo);
 
     const body = document.createElement('div');
-    body.className = 'body';
+    body.className = 'container-bot';
 
     const box = document.createElement('div');
-    box.className = 'box';
+    box.className = 'body-box';
     box.style.marginTop = "5px"
     box.style.background = defaultBotBg;
     box.innerHTML = checkRenderBot(data);
@@ -287,7 +293,7 @@
       close.className = 'close';
 
       const closeIcon = document.createElement('img');
-      closeIcon.className = 'icon';
+      closeIcon.className = 'close-icon';
       closeIcon.alt = 'close-icon';
       closeIcon.src = 'https://i.ibb.co/jhCxsbM/close.png';
       closeIcon.onclick = _onResetBubble;

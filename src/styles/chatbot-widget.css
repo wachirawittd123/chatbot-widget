@@ -64,26 +64,27 @@
     width: 50%;
   }
 
-  .chatbox-header .close .icon {
+  .chatbox-header .close-icon {
     width: 30px;
     height: 30px;
     cursor: pointer;
+    margin-top: 10px;
   }
   
   #chatbox-messages {
-    height: 415px;
+    height: 395px;
     width: 380px;
     overflow-x: auto;
     margin-bottom: 10px;
   }
   
   #chatbox-input {
-    width: 100%;
+    width: 96.5%;
     padding: 5px;
     margin-bottom: 10px;
     border: 1px solid rgb(224, 224, 224);
     border-radius: 4px;
-    height: 45px !important;
+    height: 35px !important;
   }
   
   #chatbox-send-btn {
@@ -104,7 +105,7 @@
   }
 
   .text-buble {
-    height: 60px;
+    height: 70px;
     font-size: 18px;
     align-content: center;
     font-weight: bold;
@@ -130,7 +131,7 @@
 
   .user-body .header .description {
     font-size: 12px;
-    margin-top: -5px;
+    margin-top: -3px;
   }
 
   .user-body .header .avatar {
@@ -157,34 +158,34 @@
     width: 100%;
   }
 
-  .bot-body .header {
+  .bot-body .header-container {
     display: flex;
     justify-content: left;
     width: 100%;
   }
 
-  .bot-body .header .title {
+  .bot-body .header-title {
     color: rgb(30, 31, 32);
     font-size: 16px;
     font-weight: 400;
   }
 
-  .bot-body .header .description {
+  .bot-body .header-description {
     font-size: 12px;
-    margin-top: -5px;
+    margin-top: -3px;
   }
 
-  .bot-body .header .avatar {
+  .bot-body .header-avatar {
     width: 35px;
     height: 35px;
   }
 
-  .bot-body .body {
+  .bot-body .container-bot {
     display: flex;
     justify-content: left;
   }
 
-  .bot-body .body .box {
+  .bot-body .body-box {
     padding: 16px;
     max-width: 90%;
     border-radius: 8px 8px 8px 0px;
@@ -266,7 +267,7 @@
 
   .icon-send-button {
     position: absolute;
-    bottom: 18px;
+    bottom: 20px;
     right: 22px;
     cursor: pointer;
   }
